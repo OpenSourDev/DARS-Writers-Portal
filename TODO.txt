@@ -1,0 +1,1 @@
+-- Footer match for dark and white theme.
