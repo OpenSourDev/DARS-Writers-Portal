@@ -1,1 +1,5 @@
--- Footer match for dark and white theme.
+SAT June 06, 2018 || ቅዳሜ ግንቦት 29, 2018
+
+--> Cleaning code and unused resources.
+--> Re-writing and enabling about and contact page.
+--> Implement download and site visitor counter.
