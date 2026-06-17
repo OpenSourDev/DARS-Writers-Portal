@@ -71,3 +71,25 @@ if (body.classList.contains("dark")) {
 } else {
   toggleBtn.textContent = "🌙";
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+
+    const popup = document.getElementById('welcomePopup');
+    const closeBtn = document.getElementById('closePopup');
+
+    const nav = performance.getEntriesByType("navigation")[0];
+
+    if (
+        nav &&
+        nav.type !== "reload" &&
+        document.referrer.includes(window.location.hostname)
+    ) {
+        popup.classList.add('popup-hidden');
+        return;
+    }
+
+    closeBtn?.addEventListener('click', () => {
+        popup.classList.add('popup-hidden');
+    });
+
+});
