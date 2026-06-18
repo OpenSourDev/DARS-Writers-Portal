@@ -2,6 +2,13 @@ SAT June 06, 2018 || ቅዳሜ ግንቦት 29, 2018
 
 --> Cleaning code and unused resources.
 --> Re-writing and enabling about and contact page.
---> Implement download and site visitor counter.
+--> Implement live download and site visitor counter.
 --> Implement separate strings for Amharic and English with option to toggle.
 --> Implementing mobile view for phones and other portable devices.
+--> Adding steps to do Road Fund Collection on Post Global
+
+
+
+Optional
+
+--> Moving the popup disclaimer to the about page with a button to launch it.
