@@ -1,4 +1,4 @@
-SAT June 06, 2018 || ቅዳሜ ግንቦት 29, 2018
+THU June 18, 2018 || ሐሙስ ሰኔ 11, 2018
 
 --> Cleaning code and unused resources.
 --> Re-writing and enabling about and contact page.
@@ -6,6 +6,7 @@ SAT June 06, 2018 || ቅዳሜ ግንቦት 29, 2018
 --> Implement separate strings for Amharic and English with option to toggle.
 --> Implementing mobile view for phones and other portable devices.
 --> Adding steps to do Road Fund Collection on Post Global
+--> Fixing the read more button implementation collapse the whole textview elements on the row
 
 
 
