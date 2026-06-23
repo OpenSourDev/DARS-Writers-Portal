@@ -4,19 +4,26 @@
     DARS Writers Portal
 </a>
 <ul class="nav-links">
-<li><a href='index.html'>Home</a></li>
-<li><a href='notes.html'>Notes</a></li>
-<li><a href='downloads.html'>Downloads</a></li>
+<li><a href='index.html' data-en="title_home">Home</a></li>
+<li><a href='notes.html' data-en="title_note">Notes</a></li>
+<li><a href='downloads.html'data-en="title_download">Downloads</a></li>
 <!--<li><a href='contact.html'>Contact</a></li> -->
 </ul>
-<button class='theme-btn' id='themeToggle'>Theme</button>
+<div class="lang-toggle">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="am">አማ</button>
+</div>
+<button class="theme-btn" id="themeToggle" aria-label="Toggle Theme">
+    🌙
+</button>
 </nav>
 <div class="container">
 
-    <h1 class="page-title">Download Resources</h1>
+    <h1 class="page-title" data-en="down_res">Download Resources</h1>
 
     <div class="search-container">
   <input
+    data-en="title_search_dl"
     id="searchInput"
     class="search"
     type="text"
@@ -109,6 +116,12 @@
             </a>
         </div>
         <div class="download-card searchable">
+            <h3>ግለሰብ በተለያየ ውክልና ለድርጅት ኪራይ</h3>
+            <a href="files/ግለሰብ_በተለያየ_ውክልና_ለድርጅት_ኪራይ.docx" target="_blank" class="btn">
+                Download
+            </a>
+        </div>
+        <div class="download-card searchable">
             <h3>ውጭ ሀገር ለሚሄዱ የኤምባሲ ውክልና ሲስተም ላይ የተሰራ ምሳሌ የሚሆን</h3>
             <a href="files/ዱባይ_ቆንፅላ.rtf" target="_blank" class="btn">
                 Download
@@ -137,4 +150,4 @@
 
 </div>
 <div class="centro">
-<footer><b><div class="inero">©️2026 DARS Writers Portal</div></b></footer></div><script src='js/app.js'></script></body></html>
+<footer><b data-en="copyright"><div class="inero">©️2026 DARS Writers Portal</div></b></footer></div><script src='js/app.js'></script></body></html>

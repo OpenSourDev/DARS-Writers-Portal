@@ -93,3 +93,182 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+
+const translations = {
+
+    am: {
+
+        title_home: "ዋና ገፅ",
+        title_note: "ማስታወሻዎች",
+        title_download: "አውርድ",
+        title_contact: "ያግኙን",
+        title_desc: "ለ DARS ጸሐፊዎች የማስታወሻዎች፣ ቀድሞ የተዘጋጀ ቴምፕሌቶች፣ ማጣቀሻዎች እና ሙያዊ አጋዥ ይዘቶች መገኛ ማዕከል",
+        title_nav: "የ DARS ፀሀፊዎች ፖርታል",
+        browse_notes: "ወደ ማስታወሻዎች",
+        browse_downloads: "ወደ ማውረጃ",
+        title_span: "DARS ፀሀፊዎች",
+        title_span_2: "ፖርታል",
+        copyright: "2026 DARS ፀሀፊዎች ፖርታል",
+        title_downloadd: "⬇️የሚወርዱ ሰነዶች",
+        title_downloaddd: "የወረዱ ሰነድች",
+        title_resourcess: "የሰነድ ክምችት",
+        title_note: "ማስታወሻዎች",
+        title_notee: "📚 ማስታወሻዎች",
+        title_update: "🚀 አዳዲስ ማሻሻያዎች",
+        title_pro: "የባለሙያ መመሪያዎች እና አጋዥ ማስታወሻዎች እና ሰነዶች",
+        title_res: "የቅርብ ጊዜ ሰነድ ክምችቶች እና ማስታወሻዎች",
+        title_tools: "መሳሪያዎች፣ ምሳሌዎች እና ሰነዶች።",
+        title_search: "🔍 ማስታወሻዎችን ከዝርዝሩ ፈልግ...",
+        title_search_dl: "🔍 ሰነዶችን ከዝርዝሩ ፈልግ...",
+        down_res: "ሰነዶችን አውርድ",
+        read_more: "የቀረውን አንብብ",
+        
+
+
+    },
+
+};
+
+
+
+const langButtons = document.querySelectorAll(".lang-btn");
+
+langButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const lang = button.dataset.lang;
+
+        setLanguage(lang);
+
+        localStorage.setItem("language", lang);
+
+        langButtons.forEach(btn =>
+            btn.classList.remove("active")
+        );
+
+        button.classList.add("active");
+
+    });
+
+});
+
+
+//Restore Saved Language
+document.addEventListener("DOMContentLoaded", () => {
+
+    document.querySelectorAll("[data-en]").forEach(element => {
+
+        element.dataset.defaultText = element.textContent;
+
+    });
+
+});
+
+function setLanguage(lang){
+
+    document.querySelectorAll("[data-en]").forEach(element => {
+
+        const key = element.dataset.en;
+
+        // Handle placeholder fields
+        if (element.hasAttribute("placeholder")) {
+
+            if (lang === "en") {
+
+                element.setAttribute(
+                    "placeholder",
+                    element.dataset.defaultPlaceholder
+                );
+
+            } else if (
+                translations[lang] &&
+                translations[lang][key]
+            ) {
+
+                element.setAttribute(
+                    "placeholder",
+                    translations[lang][key]
+                );
+            }
+
+            return;
+        }
+
+        // Normal text elements
+        if (lang === "en") {
+
+            if (element.dataset.defaultHtml) {
+                element.innerHTML =
+                    element.dataset.defaultHtml;
+            }
+
+        } else if (
+            translations[lang] &&
+            translations[lang][key]
+        ) {
+
+            element.innerHTML =
+                translations[lang][key];
+        }
+
+    });
+}
+
+document.querySelectorAll("[data-en]").forEach(element => {
+
+    if (element.hasAttribute("placeholder")) {
+        element.dataset.defaultPlaceholder =
+            element.getAttribute("placeholder");
+    }
+
+    element.dataset.defaultHtml =
+        element.innerHTML || "";
+
+});
+
+document.querySelectorAll("[data-en]").forEach(element => {
+
+    if (element.hasAttribute("placeholder")) {
+        element.dataset.defaultPlaceholder =
+            element.getAttribute("placeholder");
+    }
+
+    element.dataset.defaultHtml =
+        element.innerHTML || "";
+
+});
+
+
+const langToggle =
+    document.getElementById("langToggle");
+
+function updateLanguageButton(lang){
+
+    langToggle.textContent =
+        lang === "am" ? "አማ" : "EN";
+}
+
+langToggle.addEventListener("click", () => {
+
+    const currentLanguage =
+        localStorage.getItem("language") || "en";
+
+    const newLanguage =
+        currentLanguage === "en"
+        ? "am"
+        : "en";
+
+    setLanguage(newLanguage);
+
+    localStorage.setItem(
+        "language",
+        newLanguage
+    );
+
+    updateLanguageButton(
+        newLanguage
+    );
+
+});

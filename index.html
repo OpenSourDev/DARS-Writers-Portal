@@ -37,39 +37,54 @@
     </div>
 </div>
     <nav>
-    <a href="index.html" class="logo">
+    <a href="index.html" data-en="title_nav" class="logo">
     DARS Writers Portal
 </a>
 <ul class="nav-links">
-<li><a href='index.html'>Home</a></li>
-<li><a href='notes.html'>Notes</a></li>
-<li><a href='downloads.html'>Downloads</a></li>
-<!--<li><a href='contact.html'>Contact</a></li> -->
+<li><a href='index.html' data-en="title_home">Home</a></li>
+<li><a href='notes.html' data-en="title_note">Notes</a></li>
+<li><a href='downloads.html'data-en="title_download">Downloads</a></li>
+<!--<li><a href='contact.html'data-en="title_">Contact</a></li> -->
 </ul>
-<button class='theme-btn' id='themeToggle'>Theme</button>
+<button class="theme-btn" id="themeToggle" aria-label="Toggle Theme">
+    🌙
+</button>
+<div class="lang-toggle">
+    <button class="lang-btn active" data-lang="en">EN</button>
+    <button class="lang-btn" data-lang="am">አማ</button>
+</div>
 </nav>
+
 
 <section class='hero'>
 <img src='assets/images/left-illustration.png'>
 <div class='hero-content'>
-<h1><span class='glow'>DARS Writers</span><br>Portal</h1>
-<p>Premium resource hub for notes, downloads, templates and professional tools for DARS writers.</p>
+<h1>
+    <span class="glow" data-en="title_span">
+        DARS Writers
+    </span>
+    <br>
+    <span data-en="title_span_2">
+        Portal
+    </span>
+</h1>
+<p data-en="title_desc">Premium resource hub for notes, downloads, templates and professional tools for DARS writers.</p>
 <div class="btn-group">
-    <a href='notes.html' class='btn'>Browse Notes</a>
-    <a href='downloads.html' class='btn'>Downloads</a>
+    <a href='notes.html' data-en="browse_notes" class='btn'>Browse Notes</a>
+    <a href='downloads.html'data-en="browse_downloads" class='btn'>Downloads</a>
 </div>
 </div>
 <img src='assets/images/right-illustration.png'>
 </section>
 <section class='cards reveal'>
-<div class='card'><h3>📚 Notes</h3><p>Professional guides and tutorials.</p></div>
-<div class='card'><h3>⬇️ Downloads</h3><p>Tools, templates and documents.</p></div>
-<div class='card'><h3>🚀 Updates</h3><p>Latest resources and news.</p></div>
+<div class='card'><h3 data-en="title_notee">📚 Notes</h3><p data-en="title_pro">Professional guides and tutorials.</p></div>
+<div class='card'><h3 data-en="title_downloadd">⬇️ Downloads</h3><p data-en="title_tools">Tools, templates and documents.</p></div>
+<div class='card'><h3 data-en="title_update">🚀 Updates</h3><p data-en="title_res">Latest resources and news.</p></div>
 </section>
 <section class='stats reveal'>
-<div class='stat'><h2 class='counter' data-target='100'>0</h2><p>Downloads</p></div>
-<div class='stat'><h2 class='counter' data-target='15'>0</h2><p>Resources</p></div>
-<div class='stat'><h2 class='counter' data-target='11'>0</h2><p>Notes</p></div>
+<div class='stat'><h2 class='counter'  data-target='100'>0</h2><p data-en="title_downloaddd">Downloads</p></div>
+<div class='stat'><h2 class='counter'  data-target='15'>0</h2><p data-en="title_resourcess">Resources</p></div>
+<div class='stat'><h2 class='counter'  data-target='11'>0</h2><p data-en="title_note">Notes</p></div>
 </section>
 <div class="centro">
-<footer><b><div class="inero">©️2026 DARS Writers Portal</div></b></footer></div><script src='js/app.js'></script></body></html>
+<footer><b><div class="inero" data-en="copyright">©️2026 DARS Writers Portal</div></b></footer></div><script src='js/app.js'></script></body></html>
