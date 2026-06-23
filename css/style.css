@@ -402,6 +402,11 @@ contact-item {
     -webkit-line-clamp: unset;
 }
 
+.notes-container {
+    display: flex;
+    align-items: flex-start;
+}
+
 /* Read more button */
 .read-more {
     margin-top: 10px;

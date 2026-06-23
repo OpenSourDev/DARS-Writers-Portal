@@ -23,23 +23,23 @@ c.style.display=c.innerText.toLowerCase().includes(v)?'block':'none';
 }
 }
 document.querySelectorAll(".read-more").forEach(button => {
-    const card = button.parentElement;
-    const content = card.querySelector(".note-content");
 
-    // Check if content is actually longer than 4 lines
-    if (content.scrollHeight <= content.clientHeight) {
-        button.style.display = "none";
-    }
+    button.addEventListener("click", function() {
 
-    button.addEventListener("click", () => {
+        const card = this.closest(".card");
+
+        const content = card.querySelector(".note-content");
+
         content.classList.toggle("expanded");
 
         if (content.classList.contains("expanded")) {
-            button.textContent = "Read less";
+            this.textContent = "Read less";
         } else {
-            button.textContent = "Read more";
+            this.textContent = "Read more";
         }
+
     });
+
 });
 
 
@@ -250,25 +250,39 @@ function updateLanguageButton(lang){
         lang === "am" ? "አማ" : "EN";
 }
 
-langToggle.addEventListener("click", () => {
+document.addEventListener("DOMContentLoaded", () => {
 
-    const currentLanguage =
+    // Save original English text
+    document.querySelectorAll("[data-en]").forEach(element => {
+
+        element.dataset.defaultHtml = element.innerHTML;
+
+        if (element.hasAttribute("placeholder")) {
+            element.dataset.defaultPlaceholder =
+                element.placeholder;
+        }
+
+    });
+
+    // Get saved language
+    const savedLang =
         localStorage.getItem("language") || "en";
 
-    const newLanguage =
-        currentLanguage === "en"
-        ? "am"
-        : "en";
+    // Apply language immediately
+    setLanguage(savedLang);
 
-    setLanguage(newLanguage);
+    // Update button text
+    updateLanguageButton(savedLang);
 
-    localStorage.setItem(
-        "language",
-        newLanguage
-    );
+});
 
-    updateLanguageButton(
-        newLanguage
-    );
+document.querySelectorAll(".card").forEach(card => {
+
+    const content = card.querySelector(".note-content");
+    const button = card.querySelector(".read-more");
+
+    if (content.scrollHeight <= 40) {
+        button.style.display = "none";
+    }
 
 });
