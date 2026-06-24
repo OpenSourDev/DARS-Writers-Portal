@@ -72,6 +72,8 @@ if (body.classList.contains("dark")) {
   toggleBtn.textContent = "🌙";
 }
 
+
+
 document.addEventListener('DOMContentLoaded', () => {
 
     const popup = document.getElementById('welcomePopup');
@@ -123,6 +125,14 @@ const translations = {
         title_search_dl: "🔍 ሰነዶችን ከዝርዝሩ ፈልግ...",
         down_res: "ሰነዶችን አውርድ",
         read_more: "የቀረውን አንብብ",
+        popup_1: "እንኳን ወደ የኢትዮጵያ ፖስታ አገልግሎት ውል እና ማስረጃ ፀሀፊዎች ፖርታል በደህና መጡ",
+        popup_2: "ይህንን ድህረ ገጽ መጠቀምዎን በመቀጠል፣ ይህንን ማስታወቂያ እንዳነበቡ እና እንደተረዱት ያረጋግጣሉ።",
+        popup_3: "ይህ ድህረ ገጽ ለመረጃ እና ለትምህርታዊ ዓላማዎች ብቻ በባለቤቱ ራሱን የቻለ የተገነባ፣ የሚጠበቅ እና የሚስተናገድ ነው።",
+        popup_4: " ከኢትዮጵያ የፖስታ አገልግሎት (EPS)፣ ከፌዴራል ሰነዶች ማረጋገጫ እና ምዝገባ አገልግሎት (FDARS)፣ ወይም ከማንኛውም ቅርንጫፎቻቸው፣ መምሪያዎቻቸው ወይም ተያያዥ አካላት ጋር የተቆራኘ፣ የተደገፈ፣ የተደገፈ ወይም በይፋ የተገናኘ አይደለም።",
+        popup_5: "በዚህ ድህረ ገጽ ላይ የሚታዩት ሁሉም አርማዎች፣ የንግድ ምልክቶች፣ የአገልግሎት ምልክቶች፣ የንግድ ምልክቶች እና ሌሎች የአእምሯዊ ንብረቶች የEPS፣ FDARS ወይም ሌሎች የሶስተኛ ወገኖች ንብረት ሆነው ይቆያሉ።",
+        popup_6: "በዚህ ድህረ ገጽ ላይ መታየታቸው፥ ለመለየት፣ ለማጣቀሻ ወይም ለመረጃ ዓላማዎች ብቻ ሲሆን ምንም አይነት ሽርክና፣ ድጋፍ፣ ፈቃድ ወይም ኦፊሴላዊ ግንኙነትን አያመለክትም።",
+        popup_7: "የድረ ገጹ ባለቤት እዚህ ውስጥ በተጠቀሱት የሶስተኛ ወገን የንግድ ምልክቶች፣ አርማዎች ወይም የምርት ስም ንብረቶች ላይ የባለቤትነት ጥያቄ አያቀርብም።",
+        popup_fi: "ተረድቼ፥ ተስማምቻለሁ❗",
         
 
 
@@ -132,27 +142,22 @@ const translations = {
 
 
 
-const langButtons = document.querySelectorAll(".lang-btn");
+document.querySelectorAll(".lang-btn").forEach(btn => {
 
-langButtons.forEach(button => {
+    btn.addEventListener("click", function () {
 
-    button.addEventListener("click", () => {
-
-        const lang = button.dataset.lang;
-
-        setLanguage(lang);
+        const lang = this.dataset.lang;
 
         localStorage.setItem("language", lang);
 
-        langButtons.forEach(btn =>
-            btn.classList.remove("active")
-        );
-
-        button.classList.add("active");
+        location.reload();
 
     });
 
 });
+
+const savedLang =
+    localStorage.getItem("language") || "am";
 
 
 //Restore Saved Language
@@ -244,11 +249,47 @@ document.querySelectorAll("[data-en]").forEach(element => {
 const langToggle =
     document.getElementById("langToggle");
 
-function updateLanguageButton(lang){
-
+function updateLanguageButton(lang) {
     langToggle.textContent =
-        lang === "am" ? "አማ" : "EN";
+        lang === "am" ? "EN" : "አማ";
 }
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    const savedLang = localStorage.getItem("language") || "am";
+
+    setLanguage(savedLang);
+
+    document.querySelectorAll(".lang-btn").forEach(btn => {
+
+        btn.classList.toggle(
+            "active",
+            btn.dataset.lang === savedLang
+        );
+
+    });
+
+});
+
+document.querySelectorAll(".lang-btn").forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        const lang = btn.dataset.lang;
+
+        localStorage.setItem("language", lang);
+
+        setLanguage(lang);
+
+        document.querySelectorAll(".lang-btn").forEach(b => {
+            b.classList.remove("active");
+        });
+
+        btn.classList.add("active");
+
+    });
+
+});
 
 document.addEventListener("DOMContentLoaded", () => {
 
