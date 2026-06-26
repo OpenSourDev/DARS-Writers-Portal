@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://opensourdev.github.io/DARS-Writers-Portal/sitemap.xml
