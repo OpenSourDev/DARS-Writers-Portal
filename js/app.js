@@ -378,3 +378,25 @@ document.querySelectorAll(".card").forEach(card => {
     }
 
 });
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const mobileBlocker = document.getElementById("mobileBlocker");
+
+    if (!mobileBlocker) return;
+
+    function isMobileDevice() {
+        return (
+            /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i
+                .test(navigator.userAgent)
+            ||
+            window.matchMedia("(pointer: coarse)").matches
+        );
+    }
+
+    if (isMobileDevice()) {
+        document.body.classList.add("mobile-device-blocked");
+        mobileBlocker.classList.add("show");
+    }
+
+});

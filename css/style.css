@@ -917,3 +917,80 @@ body.dark .language-switcher select{
 
     transform: translateY(0);
 }
+
+/* ================================
+   MOBILE DEVICE BLOCK
+================================ */
+
+.mobile-blocker {
+    position: fixed;
+    inset: 0;
+    z-index: 999999;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    background: rgba(3, 11, 26, 0.96);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.mobile-blocker.show {
+    display: flex;
+}
+
+.mobile-blocker-box {
+    width: min(420px, 100%);
+    padding: 35px 25px;
+    text-align: center;
+    border: 1px solid #1e90ff;
+    border-radius: 20px;
+    background: rgba(15, 23, 42, 0.98);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: mobileBlockerIn 0.35s ease;
+}
+
+.mobile-blocker-icon {
+    font-size: 55px;
+    margin-bottom: 15px;
+}
+
+.mobile-blocker-box h2 {
+    margin: 0 0 12px;
+    color: #ffffff;
+    font-size: 24px;
+}
+
+.mobile-blocker-box p {
+    margin: 0;
+    color: #cbd5e1;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.mobile-blocker-note {
+    margin-top: 20px !important;
+    font-size: 13px !important;
+    color: #94a3b8 !important;
+}
+
+@keyframes mobileBlockerIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px) scale(0.96);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* Hide/block the actual website */
+body.mobile-device-blocked {
+    overflow: hidden !important;
+}
+
+body.mobile-device-blocked > *:not(.mobile-blocker) {
+    visibility: hidden;
+}
